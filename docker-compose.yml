@@ -1,0 +1,8 @@
+web1:
+  build: web1
+  ports:
+   - "8080:80"
+proxy:
+  build: proxy
+  ports:
+   - "80:80"
