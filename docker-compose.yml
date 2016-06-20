@@ -1,8 +1,36 @@
-web1:
-  build: web1
+wordpress:
+  build: wordpress
   ports:
-   - "8080:80"
+    - "49701:80"
+  links:
+    - "mysql:mysql"
+
+mysql:
+  build: mysql
+  ports:
+    - "3306:3306"
+  volumes_from:
+    - data-mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+    MYSQL_USER: mysql
+    MYSQL_PASSWORD: password
+data-mysql:
+  build: data-mysql
+
+pgsql:
+  build: pgsql
+  ports:
+    - "5432:5432"
+  volumes_from:
+    - psqldata
+  environment:
+    POSTGRES_PASSWORD: password
+data-pgsql:
+  build: data-pgsql
+
 proxy:
   build: proxy
   ports:
-   - "80:80"
+    - "80:80"
+
