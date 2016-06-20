@@ -23,7 +23,7 @@ pgsql:
   ports:
     - "5432:5432"
   volumes_from:
-    - psqldata
+    - data-pgsql
   environment:
     POSTGRES_PASSWORD: password
 data-pgsql:
