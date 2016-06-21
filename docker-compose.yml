@@ -5,6 +5,11 @@ wordpress:
   links:
     - "mysql:mysql"
 
+httpd:
+  build: httpd
+  ports:
+    - "49702:80"
+
 mysql:
   build: mysql
   ports:
